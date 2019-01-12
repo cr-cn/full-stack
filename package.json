@@ -9,7 +9,9 @@
     "build:client": "webpack --config build/webpack.config.client.js",
     "build:server": "webpack --config build/webpack.config.server.js",
     "dev:client": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.client.js",
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "lint": "eslint --ext .js --ext .jsx client/",
+    "precommit": "npm run lint"
   },
   "author": "Ray",
   "license": "ISC",
