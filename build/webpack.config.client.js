@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 const HTMLPlugin = require("html-webpack-plugin");
 
 const isDev = process.env.NODE_ENV === "development";
@@ -10,7 +11,7 @@ const config = {
   output: {
     filename: "[name].[hash].js",
     path: path.join(__dirname, "../dist"),
-    publicPath: "/public"
+    publicPath: "/public/"
   },
   module: {
     rules: [
@@ -33,15 +34,28 @@ const config = {
 };
 
 if (isDev) {
+  config.entry = {
+    app: ["react-hot-loader/patch", path.join(__dirname, "../client/app.js")]
+  };
   config.devServer = {
     host: "0.0.0.0",
     port: "8888",
     contentBase: path.join(__dirname, "../dist"),
-    hot: true,
     overlay: {
       errors: true
+    },
+    publicPath: "/public",
+    hotOnly: true,
+    // 配置对应关系，配置所有404请求都到这个页面
+    // 如果 js 文件访问不到，把项目目录里的 dist 文件夹删除即可
+    historyApiFallback: {
+      index: "/public/index.html"
     }
   };
+  config.plugins.push(
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
+  );
 }
 
-module.export = config;
+module.exports = config;
