@@ -27,6 +27,9 @@
 - 删除远程分支：`git push origin -d 远程分支名`
 - 删除本地分支： `git branch -d 本地分支` （在 master 中）
 - 合并某分支到当前分支：`git merge 被合并的分支名`
+- 分支改名： `git branch -m (非当前：原分支名) 新分支名`
+
+---
 
 ## 项目基本目录结构
 
