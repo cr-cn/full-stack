@@ -5,6 +5,10 @@ module.exports = {
     path: path.join(__dirname, '../dist'),
     publicPath: '/public/'
   },
+  resolve: {
+    // 引入文件可以省略后缀名
+    extensions: ['.js', '.jsx']
+  },
   module: {
     rules: [
       {
