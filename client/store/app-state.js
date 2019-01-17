@@ -17,7 +17,7 @@ export class AppState {
 const appState = new AppState();
 
 autorun(() => {
-  console.log(appState.msg);
+  console.log(appState.msg); // eslint-disable-line
 });
 
 setInterval(() => {
