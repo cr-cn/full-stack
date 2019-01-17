@@ -1,4 +1,6 @@
 {
-  "presets": [["es2015", { "loose": true }], "react"],
-  "plugins": ["react-hot-loader/babel"]
+  "presets": [["es2015", { "loose": true }], "stage-1", "react"],
+
+  // transform-decorators-legacy 这个依赖必须放在 plugins 的首项
+  "plugins": ["transform-decorators-legacy", "react-hot-loader/babel"]
 }
