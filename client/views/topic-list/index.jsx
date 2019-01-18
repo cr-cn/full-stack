@@ -25,5 +25,5 @@ export default class TopicList extends Component {
 }
 
 TopicList.propTypes = {
-  appState: PropTypes.instanceOf(AppState).isRequired,
+  appState: PropTypes.instanceOf(AppState),
 };
