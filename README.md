@@ -29,6 +29,10 @@
 - 合并某分支到当前分支：`git merge 被合并的分支名`
 - 分支改名： `git branch -m (非当前：原分支名) 新分支名`
 
+### You should not use <Link> outside a <Router>
+
+- 待解决
+
 ---
 
 ## 项目基本目录结构
@@ -70,3 +74,5 @@ HTML5 API 中的 history 能够让我们控制 url 跳转之后并不刷新页�
 ### Mobx
 
 Mobx 是 flux 实现的后起之秀，其以更简单的使用和更少的概念，让 flux 使用起来变得更加简单。相比 Redux 有 mutation、action、dispatch 等概念，Mobx 则更符合对一个 store 增删改查的操作概念
+
+### cnodejs.org/api
