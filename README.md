@@ -29,9 +29,14 @@
 - 合并某分支到当前分支：`git merge 被合并的分支名`
 - 分支改名： `git branch -m (非当前：原分支名) 新分支名`
 
-### You should not use <Link> outside a <Router>
+### You should not use <Link> outside a <Router> `server-entry.js`
 
-- 待解决
+- 原因：由于 App.js export 的是一个数组，所以 Link 标签被暴露，需要用一个 Router 标签包裹
+- 解决：`import StaticRouter` 去包裹 `<App />`
+
+### Javascript 语法规范错误提示代码
+
+https://www.jianshu.com/p/b02f6b15cd09
 
 ---
 

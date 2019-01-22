@@ -27,6 +27,7 @@ if (isDev) {
   config.devServer = {
     host: '0.0.0.0',
     port: '8888',
+    compress: true,
     contentBase: path.join(__dirname, '../dist'),
     overlay: {
       errors: true
@@ -37,6 +38,9 @@ if (isDev) {
     // 如果 js 文件访问不到，把项目目录里的 dist 文件夹删除即可
     historyApiFallback: {
       index: '/public/index.html'
+    },
+    proxy: {
+      '/api': 'http://localhost:3333'
     }
   }
   config.plugins.push(
