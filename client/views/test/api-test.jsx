@@ -7,7 +7,7 @@ export default class TestApi extends Component {
     axios
       .get('/api/topics')
       .then(resp => {
-        console.log(resp);
+        console.log('topics', resp);
       })
       .catch(err => console.log(err));
   }
@@ -18,7 +18,7 @@ export default class TestApi extends Component {
         accesstoken: '93413716-6208-40e6-933f-735b96411079',
       })
       .then(resp => {
-        console.log(resp);
+        console.log('login', resp);
       })
       .catch(err => console.log(err));
   }
@@ -27,7 +27,7 @@ export default class TestApi extends Component {
     axios
       .post('/api/message/mark_all?needAccessToken=true')
       .then(resp => {
-        console.log(resp);
+        console.log('markAll', resp);
       })
       .catch(err => console.log(err));
   }
