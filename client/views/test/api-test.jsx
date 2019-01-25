@@ -15,7 +15,10 @@ export default class TestApi extends Component {
   login() {
     axios
       .post('/api/user/login', {
-        accesstoken: '984b70fb-5b8f-414d-ab8a-61a17daefea5',
+        data: {
+          accesstoken: '984b70fb-5b8f-414d-ab8a-61a17daefea5',
+        },
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       })
       .then(resp => {
         console.log('login', resp);
