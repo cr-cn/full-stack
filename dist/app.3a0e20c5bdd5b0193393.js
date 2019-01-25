@@ -34374,50 +34374,32 @@ var TestApi = function (_Component) {
   _inherits(TestApi, _Component);
 
   function TestApi() {
-    var _temp, _this, _ret;
-
     _classCallCheck(this, TestApi);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.getTopics = function () {
-      var _this2;
-
-      return (_this2 = _this).__getTopics__REACT_HOT_LOADER__.apply(_this2, arguments);
-    }, _this.login = function () {
-      var _this3;
-
-      return (_this3 = _this).__login__REACT_HOT_LOADER__.apply(_this3, arguments);
-    }, _this.markAll = function () {
-      var _this4;
-
-      return (_this4 = _this).__markAll__REACT_HOT_LOADER__.apply(_this4, arguments);
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    return _possibleConstructorReturn(this, _Component.apply(this, arguments));
   }
 
-  TestApi.prototype.__getTopics__REACT_HOT_LOADER__ = function __getTopics__REACT_HOT_LOADER__() {
+  TestApi.prototype.getTopics = function getTopics() {
     _axios2.default.get('/api/topics').then(function (resp) {
-      console.log(resp);
+      console.log('topics', resp);
     }).catch(function (err) {
       return console.log(err);
     });
   };
 
-  TestApi.prototype.__login__REACT_HOT_LOADER__ = function __login__REACT_HOT_LOADER__() {
+  TestApi.prototype.login = function login() {
     _axios2.default.post('/api/user/login', {
-      accessToken: '78039bbc-1169-4c35-9e48-52b3621696ed'
+      accesstoken: '984b70fb-5b8f-414d-ab8a-61a17daefea5'
     }).then(function (resp) {
-      console.log(resp);
+      console.log('login', resp);
     }).catch(function (err) {
       return console.log(err);
     });
   };
 
-  TestApi.prototype.__markAll__REACT_HOT_LOADER__ = function __markAll__REACT_HOT_LOADER__() {
+  TestApi.prototype.markAll = function markAll() {
     _axios2.default.post('/api/message/mark_all?needAccessToken=true').then(function (resp) {
-      console.log(resp);
+      console.log('markAll', resp);
     }).catch(function (err) {
       return console.log(err);
     });
@@ -34453,7 +34435,7 @@ var TestApi = function (_Component) {
 exports.default = TestApi;
 ;
 
-var _temp2 = function () {
+var _temp = function () {
   if (typeof __REACT_HOT_LOADER__ === 'undefined') {
     return;
   }
