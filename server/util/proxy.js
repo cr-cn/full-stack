@@ -30,7 +30,6 @@ module.exports = function (req, res, next) {
       })
     ),
     headers: {
-      // formdata 的方式发送请求
       'Content-Type': 'application/x-www-form-urlencoded'
     }
   })
