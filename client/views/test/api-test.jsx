@@ -4,8 +4,7 @@ import axios from 'axios';
 /* eslint-disable */
 export default class TestApi extends Component {
   getTopics() {
-    axios
-      .get('/api/topics')
+    axios.get('/api/topics')
       .then(resp => {
         console.log('topics', resp);
       })
@@ -13,12 +12,11 @@ export default class TestApi extends Component {
   }
 
   login() {
-    axios
-      .post('/api/user/login', { accesstoken: '984b70fb-5b8f-414d-ab8a-61a17daefea5' })
+    axios.post('/api/user/login', { accessToken: '17a0cdcd-2639-469f-9d45-bd68bb1f7044' })
       .then(resp => {
         console.log('login', resp);
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log(err,'err'));
   }
 
   markAll() {
@@ -27,7 +25,7 @@ export default class TestApi extends Component {
       .then(resp => {
         console.log('markAll', resp);
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log(err, 'err'));
   }
 
   render() {

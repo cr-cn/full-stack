@@ -7629,11 +7629,11 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(AppState, 'AppState', '/Users/ray/item/full-stack/client/store/app-state.js');
+  __REACT_HOT_LOADER__.register(AppState, 'AppState', '/Users/xujianwei/full-stack/client/store/app-state.js');
 
-  __REACT_HOT_LOADER__.register(appState, 'appState', '/Users/ray/item/full-stack/client/store/app-state.js');
+  __REACT_HOT_LOADER__.register(appState, 'appState', '/Users/xujianwei/full-stack/client/store/app-state.js');
 
-  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/ray/item/full-stack/client/store/app-state.js');
+  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/xujianwei/full-stack/client/store/app-state.js');
 }();
 
 ;
@@ -7972,9 +7972,9 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(root, 'root', '/Users/ray/item/full-stack/client/app.js');
+  __REACT_HOT_LOADER__.register(root, 'root', '/Users/xujianwei/full-stack/client/app.js');
 
-  __REACT_HOT_LOADER__.register(render, 'render', '/Users/ray/item/full-stack/client/app.js');
+  __REACT_HOT_LOADER__.register(render, 'render', '/Users/xujianwei/full-stack/client/app.js');
 }();
 
 ;
@@ -34139,7 +34139,7 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(App, 'App', '/Users/ray/item/full-stack/client/views/App.jsx');
+  __REACT_HOT_LOADER__.register(App, 'App', '/Users/xujianwei/full-stack/client/views/App.jsx');
 }();
 
 ;
@@ -34187,7 +34187,7 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/ray/item/full-stack/client/config/router.jsx');
+  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/xujianwei/full-stack/client/config/router.jsx');
 }();
 
 ;
@@ -34279,7 +34279,7 @@ var _temp2 = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(TopicList, 'TopicList', '/Users/ray/item/full-stack/client/views/topic-list/index.jsx');
+  __REACT_HOT_LOADER__.register(TopicList, 'TopicList', '/Users/xujianwei/full-stack/client/views/topic-list/index.jsx');
 }();
 
 ;
@@ -34338,7 +34338,7 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(TopicDetail, 'TopicDetail', '/Users/ray/item/full-stack/client/views/topic-detail/index.jsx');
+  __REACT_HOT_LOADER__.register(TopicDetail, 'TopicDetail', '/Users/xujianwei/full-stack/client/views/topic-detail/index.jsx');
 }();
 
 ;
@@ -34388,12 +34388,7 @@ var TestApi = function (_Component) {
   };
 
   TestApi.prototype.login = function login() {
-    _axios2.default.post('/api/user/login', {
-      data: {
-        accesstoken: '984b70fb-5b8f-414d-ab8a-61a17daefea5'
-      },
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-    }).then(function (resp) {
+    _axios2.default.post('/api/user/login', { accesstoken: '984b70fb-5b8f-414d-ab8a-61a17daefea5' }).then(function (resp) {
       console.log('login', resp);
     }).catch(function (err) {
       return console.log(err);
@@ -34443,7 +34438,7 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(TestApi, 'TestApi', '/Users/ray/item/full-stack/client/views/test/api-test.jsx');
+  __REACT_HOT_LOADER__.register(TestApi, 'TestApi', '/Users/xujianwei/full-stack/client/views/test/api-test.jsx');
 }();
 
 ;
