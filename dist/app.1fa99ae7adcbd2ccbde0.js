@@ -34388,12 +34388,7 @@ var TestApi = function (_Component) {
   };
 
   TestApi.prototype.login = function login() {
-    _axios2.default.post('/api/user/login', {
-      data: {
-        accesstoken: '984b70fb-5b8f-414d-ab8a-61a17daefea5'
-      },
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-    }).then(function (resp) {
+    _axios2.default.post('/api/user/login', { accesstoken: '984b70fb-5b8f-414d-ab8a-61a17daefea5' }).then(function (resp) {
       console.log('login', resp);
     }).catch(function (err) {
       return console.log(err);
