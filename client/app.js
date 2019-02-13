@@ -5,14 +5,14 @@ import { Provider } from 'mobx-react';
 import { AppContainer } from 'react-hot-loader'; // eslint-disable-line
 import App from './views/App';
 
-import appState from './store/app-state';
+import AppState from './store/app-state';
 
 const root = document.getElementById('root');
 const render = (Component) => {
   // 包一层的能力来自于 React 的 context 这个特性
   ReactDOM.hydrate(
     <AppContainer>
-      <Provider appState={appState}>
+      <Provider appState={new AppState()}>
         <BrowserRouter>
           <Component />
         </BrowserRouter>

@@ -1,7 +1,7 @@
 const axios = require('axios')
 const querystring = require('query-string')
 
-const baseUrl = 'http://cnodejs.org/api/v1'
+const baseUrl = 'https://cnodejs.org/api/v1'
 
 module.exports = function (req, res, next) {
   const path = req.path
