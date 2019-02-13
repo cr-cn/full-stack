@@ -72,7 +72,6 @@
     "http-proxy-middleware": "^0.17.4",
     "husky": "^0.14.3",
     "memory-fs": "^0.4.1",
-    "mfs": "^0.1.1",
     "name-all-modules-plugin": "^1.0.1",
     "nodemon": "^1.18.9",
     "qiniu": "^7.1.1",
