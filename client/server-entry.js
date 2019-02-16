@@ -6,6 +6,7 @@ import App from './views/App';
 import { createStoreMap } from './store/store';
 
 // 让 mobx 在服务端渲染的时候不会重复数据变换，导致内存溢出
+// xxx
 useStaticRendering(true);
 
 export default (stores, routerContext, url) => (

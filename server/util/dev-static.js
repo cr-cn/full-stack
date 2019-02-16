@@ -7,6 +7,7 @@ const serialize = require('serialize-javascript')
 const ejs = require('ejs')
 const asyncBootstrap = require('react-async-bootstrapper').default
 const ReactDomServer = require('react-dom/server')
+const Helmet = require('react-helmet').default
 
 const serverConfig = require('../../build/webpack.config.server')
 
@@ -20,7 +21,20 @@ const getTemplate = () =>
       .catch(reject)
   })
 
-const Module = module.constructor
+const NativeModule = require('module')
+const vm = require('vm')
+
+const getModuleFromString = (bundle, filename) => {
+  const m = { exports: {} }
+  const wrapper = NativeModule.wrap(bundle)
+  const script = new vm.Script(wrapper, {
+    filename: filename,
+    displayErrors: true
+  })
+  const result = script.runInThisContext()
+  result.call(m.exports, m.exports, require, m)
+  return m
+}
 const mfs = new MemoryFS()
 
 const serverCompiler = webpack(serverConfig)
@@ -38,9 +52,10 @@ serverCompiler.watch({}, (err, stats) => {
   )
   // 编码格式
   const bundle = mfs.readFileSync(bundlePath, 'utf-8')
-  const m = new Module()
+  const m = getModuleFromString(bundle, 'server-entry.js')
+  // const m = new Module()
   // 这是 compile 一定要指定文件名
-  m._compile(bundle, 'server-entry.js')
+  // m._compile(bundle, 'server-entry.js')
   serverBundle = m.exports.default
   createStoreMap = m.exports.createStoreMap
 })
@@ -70,17 +85,20 @@ module.exports = app => {
           res.end()
           return
         }
-
+        const helmet = Helmet.rewind()
         const state = getStoreState(stores)
         const content = ReactDomServer.renderToString(app)
 
         const html = ejs.render(template, {
           appString: content,
-          initialState: serialize(state)
+          initialState: serialize(state),
+          meta: helmet.meta.toString(),
+          title: helmet.title.toString(),
+          link: helmet.link.toString(),
+          style: helmet.style.toString()
         })
 
         res.send(html)
-        // res.send(template.replace('<!-- app -->', content))
       })
     })
   })

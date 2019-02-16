@@ -45,6 +45,15 @@ https://www.jianshu.com/p/b02f6b15cd09
 ### mobx warning: there are multiple mobx instances active...
 
 - 有多个 mobx 实例被启动了
+- `externals: Object.keys(require('../package.json').dependencies)`
+
+### 使用了 externals 配置项后，出现 Cannot find module 'react'
+
+-
+
+### react-helmet
+
+- 用于 每个页面 title 的设置
 
 ---
 
