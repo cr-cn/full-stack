@@ -14,6 +14,15 @@ export default class TopicList extends Component {
     this.props.appState.changeName(event.target.value);
   };
 
+  asyncBootstrap() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        this.props.appState.count = 3;
+        resolve(true);
+      });
+    });
+  }
+
   render() {
     return (
       <div>

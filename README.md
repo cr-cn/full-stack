@@ -42,6 +42,10 @@ https://www.jianshu.com/p/b02f6b15cd09
 
 - 未解决
 
+### mobx warning: there are multiple mobx instances active...
+
+- 有多个 mobx 实例被启动了
+
 ---
 
 ## 项目基本目录结构
