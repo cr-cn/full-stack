@@ -108,3 +108,16 @@ Mobx 是 flux 实现的后起之秀，其以更简单的使用和更少的概念
 ### store 数据同步
 
 每个页面会有对应的数据，在服务端渲染时已经请求过对应数据，所以要让客户端知道这些数据，在客户端渲染的时候直接使用，而不是通过 API 再次请求，造成浪费。
+
+### React 16
+
+- 相对于 15，更小了，react + react-dom 在 gzipped 之后小了 10k 左右
+- 整个代码都用 Fiber 重写了
+- 更新了一堆非常有用的功能
+- error boundary
+  `componentDidCatch`
+- New render return types
+- 直接返回 字符串
+- Portals
+- Better server-side rendering ( streaming )
+- reactjs.org/blog/2017/09/26/react-v16.0.html
