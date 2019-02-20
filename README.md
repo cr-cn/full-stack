@@ -57,6 +57,10 @@ https://www.jianshu.com/p/b02f6b15cd09
 
 - 用于 每个页面 title 的设置
 
+### Warning: Failed prop type: Invalid prop `jss` of type `Jss` supplied to `JssProvider`, expected instance of `Jss`.
+
+- 存在两个版本不同的 jss 引用，下一个版本会 fix
+
 ---
 
 ## 项目基本目录结构
