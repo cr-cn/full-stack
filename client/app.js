@@ -15,6 +15,9 @@ const theme = createMuiTheme({
     accent: lightBlue,
     type: 'light',
   },
+  typography: {
+    useNextVariants: true,
+  },
 });
 
 const initialState = window.__INITIAL__STATE__ || {}; // eslint-disable-line

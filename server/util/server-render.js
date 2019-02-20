@@ -26,6 +26,9 @@ module.exports = (bundle, template, req, res) => {
         primary: colors.pink,
         accent: colors.lightBlue,
         type: 'light'
+      },
+      typography: {
+        useNextVariants: true
       }
     })
     const app = createApp(
