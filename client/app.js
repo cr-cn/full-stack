@@ -12,7 +12,7 @@ import AppState from './store/app-state';
 const theme = createMuiTheme({
   palette: {
     primary: pink,
-    accent: lightBlue,
+    secondary: lightBlue,
     type: 'light',
   },
   typography: {

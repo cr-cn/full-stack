@@ -34,16 +34,21 @@ class MainAppBar extends Component {
       <div className={classes.root}>
         <AppBar position="fixed">
           <ToolBar>
-            <IconButton color="contrast" onClick={this.onHomeIconClick}>
+            <IconButton color="contrastText" onClick={this.onHomeIconClick}>
               <HomeIcon />
             </IconButton>
             <Typography type="title" color="inherit" className={classes.flex}>
               JNode
             </Typography>
-            <Button raise="true" color="accent" onClick={this.createButtonClick}>
+            <Button
+              raise="true"
+              color="inherit"
+              variant="contained"
+              onClick={this.createButtonClick}
+            >
               新建话题
             </Button>
-            <Button color="contrast" onClick={this.loginButtonClick}>
+            <Button color="inherit" onClick={this.loginButtonClick}>
               登录
             </Button>
           </ToolBar>

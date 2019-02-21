@@ -24,7 +24,7 @@ module.exports = (bundle, template, req, res) => {
     const theme = createMuiTheme({
       palette: {
         primary: colors.pink,
-        accent: colors.lightBlue,
+        secondary: colors.lightBlue,
         type: 'light'
       },
       typography: {

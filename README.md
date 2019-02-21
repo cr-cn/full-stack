@@ -127,3 +127,21 @@ Mobx 是 flux 实现的后起之秀，其以更简单的使用和更少的概念
 - Portals
 - Better server-side rendering ( streaming )
 - reactjs.org/blog/2017/09/26/react-v16.0.html
+
+### Promise
+
+- Promise 是构造函数，new 出来的实例有 then 方法
+- new Promise 时，传递一个参数，这个参数是函数，又被称为执行器函数（executor），并且这个执行器会被立即调用。
+- executor 是函数，它接受两个参数 resolve / reject，同时这两个参数也是函数。
+- new Promise 后的实例具有状态，默认状态是等待，当执行器调用 reslove 后，实例状态变为成功状态，当执行期调用 reject 后，实例状态变为失败状态。
+- Promise 就是 承若 的意思，实例的状态一旦发生改变，不能再次被修改。
+- 每一个 Promise 实例都有方法 then，then 中有两个参数，这两个参数也都是函数，当执行器调用 resolove 后，then 中第一个参数函数会执行，当调用 reject 后，then 中第二个参数函数会执行。
+
+### 链式调用
+
+- jQuery 的链式调用是因为 jQuery 返回了 this，pormise 能一直 then 下去，是因为 promise 的 then 方法返回了 promise 对象。
+- 返回的是新的 promise 对象，因为 promise 对象的状态一经修改将不可变，所以需要返回新的 promise 对象。
+- then 方法中的两个参数，也就是 resolve 回调和 reject 回调，如何处理他们的返回值？
+- 以 resolve 为例，返回普通值，即常量或者对象，这个值将会传到下一个 then 方法中，作为成功的结果。如果返回的不是普通值？
+- 返回 promise 对象，会根据这个 promise 对象的状态是 resolve 还是 reject，来决定调用下一个 then 方法中的第一个参数还是第二个。
+- 返回 err，则会直接调用下一个 then 方法中的 reject 参数函数。
