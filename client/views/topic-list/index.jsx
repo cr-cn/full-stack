@@ -33,7 +33,7 @@ export default class TopicList extends Component {
           <title>This is topic list</title>
           <meta name="description" content="This is description" />
         </Helmet>
-        <Button raised color="primary">
+        <Button raised="true" color="primary">
           This is a button
         </Button>
         <input type="text" onChange={this.changeName} />
