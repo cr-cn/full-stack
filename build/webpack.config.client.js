@@ -27,6 +27,8 @@ const config = webpackMerge(baseConfig, {
 })
 
 if (isDev) {
+  // 形成一个 source map，可以调试我们的源代码，而不是编译后的代码
+  config.devtool = '#cheap-module-eval-source-map'
   config.entry = {
     app: ['react-hot-loader/patch', path.join(__dirname, '../client/app.js')]
   }
@@ -34,11 +36,11 @@ if (isDev) {
     host: '0.0.0.0',
     port: '8888',
     compress: true,
-    contentBase: path.join(__dirname, '../dist'),
+    // contentBase: path.join(__dirname, '../dist'),
     overlay: {
       errors: true
     },
-    publicPath: '/public',
+    publicPath: '/public/',
     hotOnly: true,
     // 配置对应关系，配置所有404请求都到这个页面
     // 如果 js 文件访问不到，把项目目录里的 dist 文件夹删除即可

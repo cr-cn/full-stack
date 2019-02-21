@@ -11,15 +11,34 @@ import AppState from './store/app-state';
 
 const theme = createMuiTheme({
   palette: {
-    // 主要颜色
     primary: pink,
-    // 匹配色
-    accent: lightBlue,
+    secondary: lightBlue,
     type: 'light',
+  },
+  typography: {
+    useNextVariants: true,
   },
 });
 
 const initialState = window.__INITIAL__STATE__ || {}; // eslint-disable-line
+
+// 在客户端渲染的时候删除在服务端渲染时候遗留的样式代码
+const createApp = (TheApp) => {
+  class Main extends React.Component {
+    // Remove the server-side injected CSS.
+    componentDidMount() {
+      const jssStyles = document.getElementById('jss-server-side');
+      if (jssStyles && jssStyles.parentNode) {
+        jssStyles.parentNode.removeChild(jssStyles);
+      }
+    }
+
+    render() {
+      return <TheApp />;
+    }
+  }
+  return Main;
+};
 
 const root = document.getElementById('root');
 const render = (Component) => {
@@ -39,11 +58,11 @@ const render = (Component) => {
   );
 };
 
-render(App);
+render(createApp(App));
 
 if (module.hot) {
   module.hot.accept('./views/App', () => {
     const NextApp = require('./views/App').default; // eslint-disable-line
-    render(NextApp);
+    render(createApp(NextApp));
   });
 }
