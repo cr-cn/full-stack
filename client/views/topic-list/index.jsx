@@ -14,12 +14,12 @@ export default class TopicList extends Component {
     // do something here
   }
 
-  changeName = (event) => {
+  changeName = event => {
     this.props.appState.changeName(event.target.value);
   };
 
   asyncBootstrap() {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       setTimeout(() => {
         this.props.appState.count = 3;
         resolve(true);
@@ -45,5 +45,5 @@ export default class TopicList extends Component {
 }
 
 TopicList.propTypes = {
-  appState: PropTypes.instanceOf(AppState),
+  appState: PropTypes.instanceOf(AppState)
 };
