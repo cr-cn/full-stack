@@ -14,6 +14,7 @@ const theme = createMuiTheme({
     primary: pink,
     secondary: lightBlue,
     type: 'light',
+    accent: lightBlue,
   },
   typography: {
     useNextVariants: true,
