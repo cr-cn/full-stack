@@ -1,4 +1,4 @@
-const topicPrimaryStyle = theme => ({
+export const topicPrimaryStyle = theme => ({
   root: {
     display: 'flex',
     alignItems: 'center',
@@ -36,5 +36,3 @@ export const topicSecondaryStyle = theme => ({
     color: theme.palette.accent[300],
   },
 });
-
-export default topicPrimaryStyle;

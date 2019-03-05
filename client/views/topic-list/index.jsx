@@ -6,12 +6,19 @@ import Helmet from 'react-helmet';
 
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import List from '@material-ui/core/List';
+import CircularProgress from '@material-ui/core/CircularProgress';
 // import Button from '@material-ui/core/Button';
 import { AppState } from '../../store/app-state';
 import Container from '../layout/container';
 import TopicListItem from './list-item';
 
-@inject('appState')
+@inject((stores) => {
+  return {
+    appState: stores.appState,
+    topicStore: stores.topicStore,
+  };
+})
 @observer
 export default class TopicList extends Component {
   constructor() {
@@ -22,6 +29,7 @@ export default class TopicList extends Component {
   }
   componentDidMount() {
     // do something here
+    this.props.topicStore.fetchTopics();
   }
 
   changeName = (event) => {
@@ -49,14 +57,19 @@ export default class TopicList extends Component {
 
   render() {
     const { tabIndex } = this.state;
-    const topic = {
-      title: 'this is title',
-      username: 'Ray',
-      reply_count: 20,
-      visit_count: 30,
-      create_at: 'anytime',
-      tab: 'share',
-    };
+    const { topicStore } = this.props;
+    const topicList = topicStore.topics;
+
+    const syncingTopic = topicStore.syncing;
+
+    // const topic = {
+    //   title: 'this is title',
+    //   username: 'Ray',
+    //   reply_count: 20,
+    //   visit_count: 30,
+    //   create_at: 'anytime',
+    //   tab: 'share',
+    // };
     return (
       <Container>
         <Helmet>
@@ -71,12 +84,22 @@ export default class TopicList extends Component {
           <Tab label="精品" />
           <Tab label="测试" />
         </Tabs>
-        <TopicListItem onClick={this.listItemClick} topic={topic} />
+        <List>
+          {topicList.map(topic => (
+            <TopicListItem key={topic.id} onClick={this.listItemClick} topic={topic} />
+          ))}
+        </List>
+        {syncingTopic ? (
+          <div>
+            <CircularProgress color="primary" size={100} />
+          </div>
+        ) : null}
       </Container>
     );
   }
 }
 
-TopicList.propTypes = {
+TopicList.wrappedComponent.propTypes = {
   appState: PropTypes.instanceOf(AppState),
+  topicStore: PropTypes.Object,
 };

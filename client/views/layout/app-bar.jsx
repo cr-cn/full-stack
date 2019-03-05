@@ -34,7 +34,8 @@ class MainAppBar extends Component {
       <div className={classes.root}>
         <AppBar position="fixed">
           <ToolBar>
-            <IconButton color="contrastText" onClick={this.onHomeIconClick}>
+            {/* <IconButton color="contrastText" onClick={this.onHomeIconClick}> */}
+            <IconButton color="default" onClick={this.onHomeIconClick}>
               <HomeIcon />
             </IconButton>
             <Typography type="title" color="inherit" className={classes.flex}>

@@ -7,7 +7,7 @@ import { lightBlue, pink } from '@material-ui/core/colors';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import App from './views/App';
 
-import AppState from './store/app-state';
+import { AppState, TopicStore } from './store/store';
 
 const theme = createMuiTheme({
   palette: {
@@ -41,12 +41,15 @@ const createApp = (TheApp) => {
   return Main;
 };
 
+const appState = new AppState(initialState.appState);
+const topicStore = new TopicStore(initialState.topicStore);
+
 const root = document.getElementById('root');
 const render = (Component) => {
   // 包一层的能力来自于 React 的 context 这个特性
   ReactDOM.hydrate(
     <AppContainer>
-      <Provider appState={new AppState(initialState.appState)}>
+      <Provider appState={appState} topicStore={topicStore}>
         <BrowserRouter>
           {/* 挂载 theme */}
           <MuiThemeProvider theme={theme}>

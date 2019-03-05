@@ -16,7 +16,7 @@ export default class App extends Component {
       //   <br />
       //   <Link to="/detail">详情页</Link>
       // </div>,
-      <AppBar />,
+      <AppBar key="App-Bar" />,
       <Routes key="routes" />,
     ];
   }
